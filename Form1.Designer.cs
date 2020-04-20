@@ -30,8 +30,8 @@
         {
             this.labelTextOriginal = new System.Windows.Forms.Label();
             this.textBoxTextType = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTextOriginal
@@ -46,19 +46,27 @@
             // 
             // textBoxTextType
             // 
+            this.textBoxTextType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTextType.Location = new System.Drawing.Point(12, 123);
             this.textBoxTextType.Multiline = true;
             this.textBoxTextType.Name = "textBoxTextType";
             this.textBoxTextType.Size = new System.Drawing.Size(776, 164);
             this.textBoxTextType.TabIndex = 1;
+            this.textBoxTextType.TextChanged += new System.EventHandler(this.textBoxTextType_TextChanged);
             // 
-            // pictureBox1
+            // pictureBoxClose
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(715, 376);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 62);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClose.Image = global::TypeRacer.Properties.Resources.close;
+            this.pictureBoxClose.Location = new System.Drawing.Point(708, 358);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(80, 80);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 2;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
+            this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
+            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
             // 
             // Form1
             // 
@@ -66,12 +74,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.textBoxTextType);
             this.Controls.Add(this.labelTextOriginal);
             this.Name = "Form1";
             this.Text = "Typerecer";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,7 +89,7 @@
 
         private System.Windows.Forms.Label labelTextOriginal;
         private System.Windows.Forms.TextBox textBoxTextType;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxClose;
     }
 }
 
