@@ -31,6 +31,7 @@
             this.labelTextOriginal = new System.Windows.Forms.Label();
             this.textBoxTextType = new System.Windows.Forms.TextBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.TypingProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +47,14 @@
             // 
             // textBoxTextType
             // 
-            this.textBoxTextType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTextType.Location = new System.Drawing.Point(12, 123);
+            this.textBoxTextType.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTextType.Location = new System.Drawing.Point(12, 172);
             this.textBoxTextType.Multiline = true;
             this.textBoxTextType.Name = "textBoxTextType";
-            this.textBoxTextType.Size = new System.Drawing.Size(776, 164);
+            this.textBoxTextType.Size = new System.Drawing.Size(776, 161);
             this.textBoxTextType.TabIndex = 1;
             this.textBoxTextType.TextChanged += new System.EventHandler(this.textBoxTextType_TextChanged);
+            this.textBoxTextType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTextType_KeyDown);
             // 
             // pictureBoxClose
             // 
@@ -68,12 +70,20 @@
             this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
             this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
             // 
+            // TypingProgress
+            // 
+            this.TypingProgress.Location = new System.Drawing.Point(12, 134);
+            this.TypingProgress.Name = "TypingProgress";
+            this.TypingProgress.Size = new System.Drawing.Size(776, 23);
+            this.TypingProgress.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.textBoxTextType);
             this.Controls.Add(this.labelTextOriginal);
@@ -90,6 +100,7 @@
         private System.Windows.Forms.Label labelTextOriginal;
         private System.Windows.Forms.TextBox textBoxTextType;
         private System.Windows.Forms.PictureBox pictureBoxClose;
+        private System.Windows.Forms.ProgressBar TypingProgress;
     }
 }
 

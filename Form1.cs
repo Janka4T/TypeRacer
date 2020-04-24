@@ -15,6 +15,12 @@ namespace TypeRacer
         public Form1()
         {
             InitializeComponent();
+            InitializeTypingProgerss();
+        }
+
+        private void InitializeTypingProgerss()
+        {
+            TypingProgress.Maximum = labelTextOriginal.Text.Length;
         }
 
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)
@@ -37,6 +43,7 @@ namespace TypeRacer
             if (TextsAreSame())
             {
                 AllowTyping();
+                TypingProgress.Value++;
                 //fine, continue
             }
             else
@@ -46,31 +53,47 @@ namespace TypeRacer
             }
         }
 
+       
+
         private bool TextsAreSame()
         {
             int charecterCount;
             charecterCount = textBoxTextType.Text.Length;
             string lablSubString = labelTextOriginal.Text.Substring(0, charecterCount);
-            if (textBoxTextType.Text != lablSubString)
+            
+            if (textBoxTextType.Text == lablSubString)
             {
-                return false;
+                
+                return true;
             }
             else
             {
-                return true;
+                
+                return false;
             }
         }
 
         private void BlockTyping()
         {                       
             textBoxTextType.MaxLength = textBoxTextType.Text.Length;
-            textBoxTextType.ForeColor = Color.Red;                                                             
+            textBoxTextType.BackColor = Color.Red;                                                             
         }
 
         private void AllowTyping()
         {
+            
             textBoxTextType.MaxLength = labelTextOriginal.Text.Length;
-            textBoxTextType.ForeColor = Color.Black;
+            textBoxTextType.BackColor = Color.White;
+            
+            
+        }
+
+        private void textBoxTextType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Space)
+            {
+             
+            }
         }
     }
 }
