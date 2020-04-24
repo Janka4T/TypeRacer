@@ -35,6 +35,7 @@
             this.TypingProgress = new System.Windows.Forms.ProgressBar();
             this.typingTimer = new System.Windows.Forms.Timer(this.components);
             this.TimeProgress = new System.Windows.Forms.ProgressBar();
+            this.CurrentCPM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,12 +93,23 @@
             this.TimeProgress.Size = new System.Drawing.Size(776, 23);
             this.TimeProgress.TabIndex = 4;
             // 
+            // CurrentCPM
+            // 
+            this.CurrentCPM.AutoSize = true;
+            this.CurrentCPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentCPM.Location = new System.Drawing.Point(36, 372);
+            this.CurrentCPM.Name = "CurrentCPM";
+            this.CurrentCPM.Size = new System.Drawing.Size(108, 32);
+            this.CurrentCPM.TabIndex = 5;
+            this.CurrentCPM.Text = "CPM: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.CurrentCPM);
             this.Controls.Add(this.TimeProgress);
             this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.pictureBoxClose);
@@ -119,6 +131,7 @@
         private System.Windows.Forms.ProgressBar TypingProgress;
         private System.Windows.Forms.Timer typingTimer;
         private System.Windows.Forms.ProgressBar TimeProgress;
+        private System.Windows.Forms.Label CurrentCPM;
     }
 }
 

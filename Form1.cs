@@ -72,10 +72,13 @@ namespace TypeRacer
                 //block, change color to red
                 BlockTyping();
             }
-
+            UpdateCPM();
         }
 
-       
+        private void UpdateCPM()
+        {
+            CurrentCPM.Text = "Current CPM:" +  CalculateCPM();
+        }
 
         private bool TextsAreSame()
         {
@@ -105,9 +108,7 @@ namespace TypeRacer
         {
             
             textBoxTextType.MaxLength = labelTextOriginal.Text.Length;
-            textBoxTextType.BackColor = Color.White;
-            
-            
+            textBoxTextType.BackColor = Color.White;                        
         }
 
         private void textBoxTextType_KeyDown(object sender, KeyEventArgs e)
@@ -134,19 +135,29 @@ namespace TypeRacer
             {
 
             }
-            
+            UpdateCPM();
         }
 
-        private int CalculateResult()
+        private int CalculateCPM()
         {
-            return textBoxTextType.Text.Length * 60 / sec;
+            int cpm;
+            try
+            {
+                cpm =  textBoxTextType.Text.Length * 60 / sec;
+                return cpm;
+            }
+            catch
+            {
+                return 0;
+            }
+             
         }
         
         private void TypingOver()
         {
             typingTimer.Stop();
             textBoxTextType.Enabled = false;
-            MessageBox.Show("time is up!!! your result is" + CalculateResult());
+            MessageBox.Show("time is up!!! your result is" + CalculateCPM());
         }
     }
 }
