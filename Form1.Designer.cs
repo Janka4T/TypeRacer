@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelTextOriginal = new System.Windows.Forms.Label();
             this.textBoxTextType = new System.Windows.Forms.TextBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.TypingProgress = new System.Windows.Forms.ProgressBar();
+            this.typingTimer = new System.Windows.Forms.Timer(this.components);
+            this.TimeProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,12 +80,25 @@
             this.TypingProgress.Size = new System.Drawing.Size(776, 23);
             this.TypingProgress.TabIndex = 3;
             // 
+            // typingTimer
+            // 
+            this.typingTimer.Interval = 1000;
+            this.typingTimer.Tick += new System.EventHandler(this.typingTimer_Tick);
+            // 
+            // TimeProgress
+            // 
+            this.TimeProgress.Location = new System.Drawing.Point(12, 105);
+            this.TimeProgress.Name = "TimeProgress";
+            this.TimeProgress.Size = new System.Drawing.Size(776, 23);
+            this.TimeProgress.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.TimeProgress);
             this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.textBoxTextType);
@@ -101,6 +117,8 @@
         private System.Windows.Forms.TextBox textBoxTextType;
         private System.Windows.Forms.PictureBox pictureBoxClose;
         private System.Windows.Forms.ProgressBar TypingProgress;
+        private System.Windows.Forms.Timer typingTimer;
+        private System.Windows.Forms.ProgressBar TimeProgress;
     }
 }
 

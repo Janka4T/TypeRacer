@@ -12,16 +12,27 @@ namespace TypeRacer
 {
     public partial class Form1 : Form
     {
+
+        int sec = 0;
+        bool typingStarted = false;
+
         public Form1()
         {
             InitializeComponent();
             InitializeTypingProgerss();
+            InitalizeltypingTimer();
+        }
+        private void InitalizeltypingTimer()
+        {
+            typingTimer.Interval = 1000;
         }
 
         private void InitializeTypingProgerss()
         {
             TypingProgress.Maximum = labelTextOriginal.Text.Length;
+            TimeProgress.Maximum = 60;
         }
+
 
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)
         {
@@ -40,10 +51,20 @@ namespace TypeRacer
 
         private void textBoxTextType_TextChanged(object sender, EventArgs e)
         {
+            if (!typingStarted)
+            {
+                typingTimer.Start();
+                typingStarted = true;
+            }
+
             if (TextsAreSame())
             {
                 AllowTyping();
-                TypingProgress.Value++;
+                TypingProgress.Value = textBoxTextType.Text.Length;
+                if(textBoxTextType.Text.Length == labelTextOriginal.Text.Length)
+                {
+                    TypingOver();
+                }
                 //fine, continue
             }
             else
@@ -51,6 +72,7 @@ namespace TypeRacer
                 //block, change color to red
                 BlockTyping();
             }
+
         }
 
        
@@ -94,6 +116,37 @@ namespace TypeRacer
             {
              
             }
+        }
+
+        private void typingTimer_Tick(object sender, EventArgs e)
+        {
+            sec++;
+            if(sec > 60)
+            {
+                TypingOver();
+            }
+
+            try
+            {
+                TimeProgress.Value = sec;
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private int CalculateResult()
+        {
+            return textBoxTextType.Text.Length * 60 / sec;
+        }
+        
+        private void TypingOver()
+        {
+            typingTimer.Stop();
+            textBoxTextType.Enabled = false;
+            MessageBox.Show("time is up!!! your result is" + CalculateResult());
         }
     }
 }
